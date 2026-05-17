@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trening pamięci</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+
+<body>
+
+<nav class="container-fluid">
+  <ul>
+    <li><strong>Trening Pamięci</strong></li>
+  </ul>
+
+  <ul>
+    <li><a href="#">Start</a></li>
+    <li><a href="#">Wyniki</a></li>
+    <li><a href="#" role="button">Ćwicz</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+  <div class="grid">
+    <section>
+
+      <div class="card">
+
+        <hgroup>
+          <h2>Zapamiętaj liczbę</h2>
+          <h3>Jedna próba odpowiedzi</h3>
+        </hgroup>
+
+        <div id="number" class="number"></div>
+
+        <button id="rememberBtn">
+          Zapamiętałem
+        </button>
+
+        <div id="game" class="hidden">
+
+          <p>Wpisz liczbę:</p>
+
+          <div id="answer" class="answer"></div>
+
+          <div id="keypad" class="keypad"></div>
+
+        </div>
+
+        <div id="result" class="result"></div>
+
+      </div>
+
+    </section>
+  </div>
+
+</main>
+
+<section aria-label="Subscribe example">
+
+  <div class="container">
+
+    <article>
+
+      <hgroup>
+        <h2>Ćwicz codziennie</h2>
+        <h3>Popraw pamięć krótkotrwałą</h3>
+      </hgroup>
+
+      <form class="grid">
+
+        <input
+          type="text"
+          id="firstname"
+          name="firstname"
+          placeholder="Imię"
+          aria-label="Imię"
+          required
+        />
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          aria-label="Email"
+          required
+        />
+
+        <button
+          type="submit"
+          onclick="event.preventDefault()"
+        >
+          Dołącz
+        </button>
+
+      </form>
+
+    </article>
+
+  </div>
+
+</section>
+
+<footer class="container">
+  <small>
+    <a href="#">Memory App</a> •
+    <a href="#">2026</a>
+  </small>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

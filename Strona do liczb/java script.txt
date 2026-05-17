@@ -1,0 +1,109 @@
+const numbers = [
+  '4827',
+  '1359',
+  '7604',
+  '2918',
+  '8431',
+  '5176',
+  '9042',
+  '2685',
+  '7310',
+  '4563'
+];
+
+let index = 0;
+let good = 0;
+let answer = '';
+
+const number = document.getElementById('number');
+const rememberBtn = document.getElementById('rememberBtn');
+const game = document.getElementById('game');
+const keypad = document.getElementById('keypad');
+const answerBox = document.getElementById('answer');
+const result = document.getElementById('result');
+
+function shuffle(a){
+  return [...a].sort(() => Math.random() - 0.5);
+}
+
+function show(){
+
+  if(index >= numbers.length){
+
+    const percent =
+      Math.round(good / numbers.length * 100);
+
+    number.innerHTML = 'KONIEC';
+
+    rememberBtn.classList.add('hidden');
+    game.classList.add('hidden');
+
+    result.innerHTML = `
+      Wynik ${good}/${numbers.length}
+      <br>
+      ${percent}% poprawnych odpowiedzi
+    `;
+
+    return;
+  }
+
+  answer = '';
+  answerBox.textContent = '';
+
+  number.textContent = numbers[index];
+
+  rememberBtn.classList.remove('hidden');
+  game.classList.add('hidden');
+}
+
+function createKeypad(){
+
+  keypad.innerHTML = '';
+
+  shuffle([
+    '0','1','2','3','4',
+    '5','6','7','8','9'
+  ]).forEach(n => {
+
+    const b = document.createElement('button');
+
+    b.textContent = n;
+
+    b.onclick = () => press(n);
+
+    keypad.appendChild(b);
+  });
+}
+
+function press(n){
+
+  if(answer.length >= 4) return;
+
+  answer += n;
+
+  answerBox.textContent = answer;
+
+  if(answer.length === 4){
+
+    if(answer === numbers[index]){
+      good++;
+    }
+
+    index++;
+
+    setTimeout(show, 500);
+  }
+}
+
+rememberBtn.onclick = () => {
+
+  number.textContent = '????';
+
+  rememberBtn.classList.add('hidden');
+
+  game.classList.remove('hidden');
+
+  createKeypad();
+};
+
+show();
