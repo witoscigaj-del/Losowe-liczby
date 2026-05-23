@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trening pamięci</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <title>Trening pamięci</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 </head>
 
 <body>
@@ -17,9 +18,9 @@
   </ul>
 
   <ul>
-    <li><a href="#">Start</a></li>
-    <li><a href="#">Wyniki</a></li>
-    <li><a href="#" role="button">Ćwicz</a></li>
+    <li><a href="#">Test</a></li>
+    <li><a href="#">Statystyki</a></li>
+    <li><a href="#" role="button">Start</a></li>
   </ul>
 </nav>
 
@@ -30,28 +31,57 @@
 
       <div class="card">
 
-        <hgroup>
-          <h2>Zapamiętaj liczbę</h2>
-          <h3>Jedna próba odpowiedzi</h3>
-        </hgroup>
+        <!-- START -->
+        <div id="startScreen">
 
-        <div id="number" class="number"></div>
+          <hgroup>
+            <h2>Test pamięci</h2>
+            <h3>Podaj swój wiek</h3>
+          </hgroup>
 
-        <button id="rememberBtn">
-          Zapamiętałem
-        </button>
+          <input
+            type="number"
+            id="ageInput"
+            placeholder="Ile masz lat?"
+            min="1"
+            max="120"
+          >
 
-        <div id="game" class="hidden">
-
-          <p>Wpisz liczbę:</p>
-
-          <div id="answer" class="answer"></div>
-
-          <div id="keypad" class="keypad"></div>
+          <button id="startBtn">
+            Rozpocznij test
+          </button>
 
         </div>
 
-        <div id="result" class="result"></div>
+        <!-- GRA -->
+        <div id="gameScreen" class="hidden">
+
+          <hgroup>
+            <h2>Zapamiętaj liczbę</h2>
+            <h3>Masz jedną próbę</h3>
+          </hgroup>
+
+          <div id="number" class="number"></div>
+
+          <button id="rememberBtn">
+            Zapamiętałem
+          </button>
+
+          <div id="game" class="hidden">
+
+            <p>Wpisz liczbę:</p>
+
+            <div id="answer" class="answer"></div>
+
+            <div id="keypad" class="keypad"></div>
+
+          </div>
+
+          <div id="feedback" class="feedback"></div>
+
+          <div id="result" class="result"></div>
+
+        </div>
 
       </div>
 
@@ -60,49 +90,46 @@
 
 </main>
 
-<section aria-label="Subscribe example">
+<!-- PANEL ADMINA -->
+<section class="container">
 
-  <div class="container">
+  <article>
 
-    <article>
+    <h2>Panel administratora</h2>
 
-      <hgroup>
-        <h2>Ćwicz codziennie</h2>
-        <h3>Popraw pamięć krótkotrwałą</h3>
-      </hgroup>
+    <input
+      type="password"
+      id="adminPassword"
+      placeholder="Hasło administratora"
+    >
 
-      <form class="grid">
+    <button id="adminLoginBtn">
+      Zaloguj
+    </button>
 
-        <input
-          type="text"
-          id="firstname"
-          name="firstname"
-          placeholder="Imię"
-          aria-label="Imię"
-          required
-        />
+    <div id="adminPanel" class="hidden">
 
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          aria-label="Email"
-          required
-        />
+      <h3>Wyniki użytkowników</h3>
 
-        <button
-          type="submit"
-          onclick="event.preventDefault()"
-        >
-          Dołącz
-        </button>
+      <table>
+        <thead>
+          <tr>
+            <th>Wiek</th>
+            <th>Poprawne</th>
+            <th>Wynik %</th>
+          </tr>
+        </thead>
 
-      </form>
+        <tbody id="adminTable"></tbody>
+      </table>
 
-    </article>
+      <h3>Grupy wiekowe</h3>
 
-  </div>
+      <div id="ageStats"></div>
+
+    </div>
+
+  </article>
 
 </section>
 
