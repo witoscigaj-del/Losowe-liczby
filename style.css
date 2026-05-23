@@ -1,6 +1,6 @@
 body{
   background:#0f172a;
-  color:#fff;
+  color:white;
   min-height:100vh;
 }
 
@@ -33,14 +33,12 @@ body{
   border-radius:16px;
   background:#334155;
   border:none;
-  color:#fff;
+  color:white;
   cursor:pointer;
-  transition:0.2s;
 }
 
 .keypad button:hover{
   background:#475569;
-  transform:scale(1.05);
 }
 
 .answer{
@@ -57,7 +55,25 @@ body{
 }
 
 .result{
-  font-size:2.5rem;
-  color:#4ade80;
+  font-size:2rem;
   margin-top:2rem;
+  color:#4ade80;
+}
+
+.feedback{
+  font-size:1.5rem;
+  margin-top:1rem;
+  font-weight:bold;
+}
+
+.correct{
+  color:#4ade80;
+}
+
+.wrong{
+  color:#f87171;
+}
+
+table{
+  width:100%;
 }
